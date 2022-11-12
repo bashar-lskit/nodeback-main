@@ -36,11 +36,6 @@
       "to": "/security",
       "name": "Account Security",
       "prefix": "/dashboard"
-    },
-    {
-      "to": "/address",
-      "name": "Address",
-      "prefix": "/dashboard"
     }
   ]
 }

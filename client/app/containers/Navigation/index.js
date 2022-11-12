@@ -191,6 +191,9 @@ class Navigation extends React.PureComponent {
                       <DropdownMenu right>
                         <DropdownItem onClick={() => history.push("/dashboard")}>Dashboard</DropdownItem>
                         <DropdownItem onClick={signOut}>Sign Out</DropdownItem>
+                        <DropdownItem onClick={() => window.location.replace("http://localhost:3001")}>
+                          Back To Home
+                        </DropdownItem>
                       </DropdownMenu>
                     </UncontrolledDropdown>
                   ) : (
@@ -201,6 +204,9 @@ class Navigation extends React.PureComponent {
                       </DropdownToggle>
                       <DropdownMenu right>
                         <DropdownItem onClick={() => history.push("/login")}>Login</DropdownItem>
+                        <DropdownItem onClick={() => window.location.replace("http://localhost:3001")}>
+                          Back To Home
+                        </DropdownItem>
                         {/* <DropdownItem onClick={() => history.push("/register")}>Sign Up</DropdownItem> */}
                       </DropdownMenu>
                     </UncontrolledDropdown>
