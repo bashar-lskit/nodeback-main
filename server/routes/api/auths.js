@@ -12,14 +12,14 @@ const { secret, tokenLife } = keys.jwt;
 
 router.post("/register", async (req, res) => {
   try {
-    const { email, password, roles, fullname, phone, division, district, upazila, level } = req.body;
+    const { email, password, role, firstName, lastName, phoneNumber, division, district, upazila, level } =
+      req.body;
     if (
       !email ||
       !password ||
-      !Array.isArray(roles) ||
-      !roles.length ||
-      !fullname ||
-      !phone ||
+      !firstName ||
+      !lastName ||
+      !phoneNumber ||
       !division ||
       !district ||
       !upazila ||
@@ -39,15 +39,14 @@ router.post("/register", async (req, res) => {
     const user = new User({
       email,
       password,
-      roles,
-      details: {
-        fullname,
-        phone,
-        division,
-        district,
-        upazila,
-        level,
-      },
+      role,
+      firstName,
+      lastName,
+      phoneNumber,
+      division,
+      district,
+      upazila,
+      level,
     });
 
     const salt = await bcrypt.genSalt(10);
