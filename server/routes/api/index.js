@@ -1,6 +1,7 @@
 const router = require("express").Router();
 
 const authRoutes = require("./auth");
+const authsRoutes = require("./auths");
 const userRoutes = require("./user");
 const addressRoutes = require("./address");
 const newsletterRoutes = require("./newsletter");
@@ -13,10 +14,11 @@ const cartRoutes = require("./cart");
 const orderRoutes = require("./order");
 const reviewRoutes = require("./review");
 const wishlistRoutes = require("./wishlist");
-const testRoutes = require("./test");
+const titleRoutes = require("./title");
 
 // auth routes
 router.use("/auth", authRoutes);
+router.use("/auths", authsRoutes);
 
 // user routes
 router.use("/user", userRoutes);
@@ -55,6 +57,6 @@ router.use("/review", reviewRoutes);
 router.use("/wishlist", wishlistRoutes);
 
 // test route
-router.use("/test", testRoutes);
+router.use("/title", titleRoutes);
 
 module.exports = router;

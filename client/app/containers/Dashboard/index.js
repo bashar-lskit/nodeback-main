@@ -7,7 +7,6 @@
 import React from "react";
 
 import { connect } from "react-redux";
-
 import actions from "../../actions";
 import { ROLE_ADMIN, ROLE_MEMBER } from "../../constants";
 import dashboardLinks from "./links.json";

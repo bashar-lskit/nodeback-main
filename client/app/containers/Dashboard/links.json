@@ -24,6 +24,11 @@
       "to": "/users",
       "name": "Users",
       "prefix": "/dashboard"
+    },
+    {
+      "to": "/title",
+      "name": "Website Title",
+      "prefix": "/dashboard"
     }
   ],
   "ROLE_MEMBER": [

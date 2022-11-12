@@ -23,6 +23,7 @@ import Brand from "../../../containers/Brand";
 import Merchant from "../../../containers/Merchant";
 import Review from "../../../containers/Review";
 import Wishlist from "../../../containers/WishList";
+import WebsiteTitle from "../../../career-components/WebsiteTitle/WebsiteTitle";
 
 const Admin = (props) => {
   return (
@@ -39,6 +40,7 @@ const Admin = (props) => {
               <Route path='/dashboard/address' component={Address} />
               <Route path='/dashboard/brand' component={Brand} />
               <Route path='/dashboard/users' component={Users} />
+              <Route path='/dashboard/title' component={WebsiteTitle} />
               <Route path='*' component={Page404} />
             </Switch>
           </div>

@@ -201,7 +201,7 @@ class Navigation extends React.PureComponent {
                       </DropdownToggle>
                       <DropdownMenu right>
                         <DropdownItem onClick={() => history.push("/login")}>Login</DropdownItem>
-                        <DropdownItem onClick={() => history.push("/register")}>Sign Up</DropdownItem>
+                        {/* <DropdownItem onClick={() => history.push("/register")}>Sign Up</DropdownItem> */}
                       </DropdownMenu>
                     </UncontrolledDropdown>
                   )}

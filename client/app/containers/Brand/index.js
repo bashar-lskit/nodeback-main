@@ -4,17 +4,17 @@
  *
  */
 
-import React from 'react';
+import React from "react";
 
-import { connect } from 'react-redux';
-import { Switch, Route } from 'react-router-dom';
+import { connect } from "react-redux";
+import { Switch, Route } from "react-router-dom";
 
-import actions from '../../actions';
-import { ROLE_ADMIN } from '../../constants';
-import List from './List';
-import Add from './Add';
-import Edit from './Edit';
-import Page404 from '../../components/Common/Page404';
+import actions from "../../actions";
+import { ROLE_ADMIN } from "../../constants";
+import List from "./List";
+import Add from "./Add";
+import Edit from "./Edit";
+import Page404 from "../../components/Common/Page404";
 
 class Brand extends React.PureComponent {
   render() {
@@ -25,9 +25,7 @@ class Brand extends React.PureComponent {
         <Switch>
           <Route exact path='/dashboard/brand' component={List} />
           <Route exact path='/dashboard/brand/edit/:id' component={Edit} />
-          {user.role === ROLE_ADMIN && (
-            <Route exact path='/dashboard/brand/add' component={Add} />
-          )}
+          {user.role === ROLE_ADMIN && <Route exact path='/dashboard/brand/add' component={Add} />}
           <Route path='*' component={Page404} />
         </Switch>
       </div>
@@ -35,9 +33,9 @@ class Brand extends React.PureComponent {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    user: state.account.user
+    user: state.account.user,
   };
 };
 
