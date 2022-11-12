@@ -11,11 +11,6 @@
       "prefix": "/dashboard"
     },
     {
-      "to": "/address",
-      "name": "Address",
-      "prefix": "/dashboard"
-    },
-    {
       "to": "/brand",
       "name": "Brand",
       "prefix": "/dashboard"
