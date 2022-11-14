@@ -24,10 +24,9 @@ const List = ({ history, user }) => {
   const fetchDistrict = async () => {
     setLoading(true);
     const response = await axios.get(`/api/upazila/all`);
-    setUpazilas(response.data.upazilas);
+    setUpazilas(response?.data?.data);
     setLoading(false);
   };
-
 
   return (
     <>

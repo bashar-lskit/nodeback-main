@@ -25,9 +25,9 @@ router.post("/add", async (req, res) => {
 
 router.get("/all", async (req, res) => {
   try {
-    const districts = await District.find({},{__v:0});
+    const districts = await District.find({}, { __v: 0 });
     res.status(200).json({
-        districts
+      data: districts,
     });
   } catch (error) {
     res.status(400).json({
@@ -35,7 +35,5 @@ router.get("/all", async (req, res) => {
     });
   }
 });
-
-
 
 module.exports = router;

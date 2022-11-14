@@ -13,7 +13,6 @@ import SubPage from "../../components/Manager/SubPage";
 import { ROLE_ADMIN } from "../../constants";
 import DistrictList from "./DistrictList";
 
-
 const List = ({ history, user }) => {
   const [districts, setDistricts] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -25,11 +24,10 @@ const List = ({ history, user }) => {
   const fetchDistrict = async () => {
     setLoading(true);
     const response = await axios.get(`/api/district/all`);
-    setDistricts(response.data.districts);
+    setDistricts(response?.data?.data);
     setLoading(false);
   };
 
-  console.log("websiteTitles", districts);
 
   return (
     <>
@@ -44,7 +42,7 @@ const List = ({ history, user }) => {
         ) : districts.length > 0 ? (
           <DistrictList districts={districts} />
         ) : (
-          <NotFound message='no brands found.' />
+          <NotFound message='no districts found.' />
         )}
       </SubPage>
     </>
