@@ -5,8 +5,6 @@
  */
 
 import React from "react";
-
-import { connect } from "react-redux";
 import SubPage from "../../components/Manager/SubPage";
 import AddTitle from "../our-components/AddTitle/AddTitle";
 

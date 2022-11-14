@@ -15,6 +15,8 @@ import AccountSecurity from "../../../containers/AccountSecurity";
 import Users from "../../../containers/Users";
 import Brand from "../../../containers/Brand";
 import WebsiteTitle from "../../../career-components/WebsiteTitle/WebsiteTitle";
+import District from "../../../career-pages/District/District";
+import Upazila from "../../../career-pages/Upazila/Upazila";
 
 const Admin = (props) => {
   return (
@@ -31,6 +33,8 @@ const Admin = (props) => {
               <Route path='/dashboard/brand' component={Brand} />
               <Route path='/dashboard/users' component={Users} />
               <Route path='/dashboard/title' component={WebsiteTitle} />
+              <Route path='/dashboard/district' component={District} />
+              <Route path='/dashboard/upazila' component={Upazila} />
               <Route path='*' component={Page404} />
             </Switch>
           </div>

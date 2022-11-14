@@ -2,20 +2,19 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Col, Input, Row } from "reactstrap";
-import Button from "../../../components/Common/Button";
-// import Input from "../../../components/Common/Input";
+import Button from "../../components/Common/Button";
 
-const AddTitle = () => {
-  const history=useHistory();
-  const [title, setTitle] = useState("");
+const AddDistrict = () => {
+  const history = useHistory();
+  const [district, setDistrict] = useState("");
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-   
-    const response = await axios.post(`/api/title/add`, { title: title });
+    const response = await axios.post(`/api/district/add`, { dName: district });
     if (response.data.success === true) {
       alert(`${response.data.message}`);
-      setTitle("");
-      history.push("/dashboard/title")
+      setDistrict("");
+      history.push("/dashboard/district");
     }
   };
 
@@ -29,20 +28,20 @@ const AddTitle = () => {
               type={"text"}
               label={"Name"}
               name={"name"}
-              placeholder={"Title Name"}
+              placeholder={"District Name"}
               onChange={(e) => {
-                setTitle(e.target.value);
+                setDistrict(e.target.value);
               }}
             />
           </Col>
         </Row>
         <hr />
-        <div className='add-title-actions'>
-          <Button type='submit' text='Add Title' />
+        <div className='add-district-actions'>
+          <Button type='submit' text='Add District' />
         </div>
       </form>
     </div>
   );
 };
 
-export default AddTitle;
+export default AddDistrict;

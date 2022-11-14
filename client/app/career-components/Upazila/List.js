@@ -11,39 +11,38 @@ import LoadingIndicator from "../../components/Common/LoadingIndicator";
 import NotFound from "../../components/Common/NotFound";
 import SubPage from "../../components/Manager/SubPage";
 import { ROLE_ADMIN } from "../../constants";
-import TitleList from "../../career-components/our-components/TitleList/TitleList";
+import UpazilaList from "./UpazilaList";
 
 const List = ({ history, user }) => {
-  const [websiteTitles, setWebsiteTitles] = useState([]);
+  const [upazilas, setUpazilas] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetchTitle();
+    fetchDistrict();
   }, []);
 
-  const fetchTitle = async () => {
+  const fetchDistrict = async () => {
     setLoading(true);
-    const response = await axios.get(`/api/title/all`);
-    setWebsiteTitles(response.data.titles);
+    const response = await axios.get(`/api/upazila/all`);
+    setUpazilas(response.data.upazilas);
     setLoading(false);
   };
 
-  console.log("websiteTitles", websiteTitles);
 
   return (
     <>
       <SubPage
-        title={user.role === ROLE_ADMIN ? "Titles" : "Title"}
+        title={user.role === ROLE_ADMIN ? "Upazila" : "Upazila"}
         actionTitle={user.role === ROLE_ADMIN && "Add"}
-        handleAction={() => history.push("/dashboard/title/add")}
+        handleAction={() => history.push("/dashboard/upazila/add")}
       >
-        <h3>Title List </h3>
+        <h3>Upazila List </h3>
         {loading ? (
           <LoadingIndicator inline />
-        ) : websiteTitles.length > 0 ? (
-          <TitleList titles={websiteTitles} />
+        ) : upazilas.length > 0 ? (
+          <UpazilaList upazilas={upazilas} />
         ) : (
-          <NotFound message='no brands found.' />
+          <NotFound message='no upazila found.' />
         )}
       </SubPage>
     </>

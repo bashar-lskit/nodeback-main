@@ -1,19 +1,20 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
+import { Route, Switch } from "react-router-dom";
+import Add from "../../career-components/Upazila/Add";
+import List from "../../career-components/Upazila/List";
 import Page404 from "../../components/Common/Page404";
-import Add from "./Add";
 import { ROLE_ADMIN } from "../../constants";
-import List from "./List";
 
-const WebsiteTitle = (props) => {
+
+const Upazila = (props) => {
   const { user } = props;
   return (
-    <div className='title-dashboard'>
+    <div className='upazila-dashboard'>
       <Switch>
-        <Route exact path='/dashboard/title' component={List} />
+        <Route exact path='/dashboard/upazila' component={List} />
         {/* <Route exact path='/dashboard/brand/edit/:id' component={Edit} /> */}
-        {user.role === ROLE_ADMIN && <Route exact path='/dashboard/title/add' component={Add} />}
+        {user.role === ROLE_ADMIN && <Route exact path='/dashboard/upazila/add' component={Add} />}
         <Route path='*' component={Page404} />
       </Switch>
     </div>
@@ -25,4 +26,5 @@ const mapStateToProps = (state) => {
     user: state.account.user,
   };
 };
-export default connect(mapStateToProps)(WebsiteTitle);
+
+export default connect(mapStateToProps)(Upazila);

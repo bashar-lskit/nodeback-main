@@ -24,6 +24,16 @@
       "to": "/title",
       "name": "Website Title",
       "prefix": "/dashboard"
+    },
+    {
+      "to": "/district",
+      "name": "District",
+      "prefix": "/dashboard"
+    },
+    {
+      "to": "/upazila",
+      "name": "Upazila",
+      "prefix": "/dashboard"
     }
   ],
   "ROLE_MEMBER": [

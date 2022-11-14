@@ -11,37 +11,38 @@ import LoadingIndicator from "../../components/Common/LoadingIndicator";
 import NotFound from "../../components/Common/NotFound";
 import SubPage from "../../components/Manager/SubPage";
 import { ROLE_ADMIN } from "../../constants";
-import TitleList from "../../career-components/our-components/TitleList/TitleList";
+import DistrictList from "./DistrictList";
+
 
 const List = ({ history, user }) => {
-  const [websiteTitles, setWebsiteTitles] = useState([]);
+  const [districts, setDistricts] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetchTitle();
+    fetchDistrict();
   }, []);
 
-  const fetchTitle = async () => {
+  const fetchDistrict = async () => {
     setLoading(true);
-    const response = await axios.get(`/api/title/all`);
-    setWebsiteTitles(response.data.titles);
+    const response = await axios.get(`/api/district/all`);
+    setDistricts(response.data.districts);
     setLoading(false);
   };
 
-  console.log("websiteTitles", websiteTitles);
+  console.log("websiteTitles", districts);
 
   return (
     <>
       <SubPage
-        title={user.role === ROLE_ADMIN ? "Titles" : "Title"}
+        title={user.role === ROLE_ADMIN ? "Districts" : "District"}
         actionTitle={user.role === ROLE_ADMIN && "Add"}
-        handleAction={() => history.push("/dashboard/title/add")}
+        handleAction={() => history.push("/dashboard/district/add")}
       >
-        <h3>Title List </h3>
+        <h3>District List </h3>
         {loading ? (
           <LoadingIndicator inline />
-        ) : websiteTitles.length > 0 ? (
-          <TitleList titles={websiteTitles} />
+        ) : districts.length > 0 ? (
+          <DistrictList districts={districts} />
         ) : (
           <NotFound message='no brands found.' />
         )}

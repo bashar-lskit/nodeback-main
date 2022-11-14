@@ -23,9 +23,22 @@ router.post("/add", async (req, res) => {
   }
 });
 
+router.get("/all", async (req, res) => {
+  try {
+    const titles = await Title.find({},{__v:0}).sort("-created");
+    res.status(200).json({
+      titles
+    });
+  } catch (error) {
+    res.status(400).json({
+      error: "Your request could not be processed. Please try again.",
+    });
+  }
+});
+
 router.get("/", async (req, res) => {
   try {
-    const latestTitle = await Title.findOne({}).sort("-created");
+    const latestTitle = await Title.findOne({},{__v:0}).sort("-created");
 
     res.status(200).json({
       latestTitle,

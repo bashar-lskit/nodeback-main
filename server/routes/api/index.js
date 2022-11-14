@@ -15,10 +15,19 @@ const orderRoutes = require("./order");
 const reviewRoutes = require("./review");
 const wishlistRoutes = require("./wishlist");
 const titleRoutes = require("./title");
+const districtRoutes = require("./district");
+const upazilaRoutes = require("./upazila");
 
 // auth routes
 router.use("/auth", authRoutes);
 router.use("/auths", authsRoutes);
+
+//district routes
+router.use("/district",districtRoutes);
+
+//upazila routes
+router.use("/upazila",upazilaRoutes);
+
 
 // user routes
 router.use("/user", userRoutes);
