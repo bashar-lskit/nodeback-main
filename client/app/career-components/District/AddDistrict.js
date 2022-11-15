@@ -1,20 +1,34 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { Col, Input, Row } from "reactstrap";
+import { handleInputChange } from "react-select/dist/utils-2db2ca57.cjs.prod";
+import { Col, FormFeedback, Input, Row } from "reactstrap";
 import Button from "../../components/Common/Button";
 
 const AddDistrict = () => {
   const history = useHistory();
   const [district, setDistrict] = useState("");
+  const [required, setRequired] = useState(false);
+
+  const handleChange = (e) => {
+    setDistrict(e.target.value);
+    if (district.length == "") {
+      setRequired(false);
+    }
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await axios.post(`/api/district/add`, { dName: district });
-    if (response.data.success === true) {
-      alert(`${response.data.message}`);
-      setDistrict("");
-      history.push("/dashboard/district");
+    if (district.length == "") {
+      setRequired(true);
+      return;
+    } else {
+      const response = await axios.post(`/api/district/add`, { dName: district });
+      if (response.data.success === true) {
+        alert(`${response.data.message}`);
+        setDistrict("");
+        history.push("/dashboard/district");
+      }
     }
   };
 
@@ -30,9 +44,10 @@ const AddDistrict = () => {
               name={"name"}
               placeholder={"District Name"}
               onChange={(e) => {
-                setDistrict(e.target.value);
+                handleChange(e);
               }}
             />
+            {required && <p className='text-danger'> Field is required</p>}
           </Col>
         </Row>
         <hr />

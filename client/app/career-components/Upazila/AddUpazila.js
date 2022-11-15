@@ -7,14 +7,26 @@ import Button from "../../components/Common/Button";
 const AddUpazila = () => {
   const history = useHistory();
   const [upazila, setUpaila] = useState("");
+  const [required, setRequired] = useState(false);
 
+  const handleChange = (e) => {
+    setUpaila(e.target.value);
+    if (upazila.length == "") {
+      setRequired(false);
+    }
+  };
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await axios.post(`/api/upazila/add`, { uName: upazila });
-    if (response.data.success === true) {
-      alert(`${response.data.message}`);
-      setUpaila("");
-      history.push("/dashboard/upazila");
+    if (upazila.length == "") {
+      setRequired(true);
+      return;
+    } else {
+      const response = await axios.post(`/api/upazila/add`, { uName: upazila });
+      if (response.data.success === true) {
+        alert(`${response.data.message}`);
+        setUpaila("");
+        history.push("/dashboard/upazila");
+      }
     }
   };
 
@@ -30,9 +42,10 @@ const AddUpazila = () => {
               name={"name"}
               placeholder={"Upazila Name"}
               onChange={(e) => {
-                setUpaila(e.target.value);
+                handleChange(e);
               }}
             />
+            {required && <p className='text-danger'> Field is required</p>}
           </Col>
         </Row>
         <hr />
