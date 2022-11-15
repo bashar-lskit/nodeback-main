@@ -204,7 +204,7 @@ class Navigation extends React.PureComponent {
                       </DropdownToggle>
                       <DropdownMenu right>
                         <DropdownItem onClick={() => history.push("/login")}>Login</DropdownItem>
-                        <DropdownItem onClick={() => window.location.replace("http://localhost:3001")}>
+                        <DropdownItem onClick={() => window.location.replace("https://bcobd.netlify.app/")}>
                           Back To Home
                         </DropdownItem>
                         {/* <DropdownItem onClick={() => history.push("/register")}>Sign Up</DropdownItem> */}
