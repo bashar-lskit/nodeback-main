@@ -191,7 +191,7 @@ class Navigation extends React.PureComponent {
                       <DropdownMenu right>
                         <DropdownItem onClick={() => history.push("/dashboard")}>Dashboard</DropdownItem>
                         <DropdownItem onClick={signOut}>Sign Out</DropdownItem>
-                        <DropdownItem onClick={() => window.location.replace("http://localhost:3001")}>
+                        <DropdownItem onClick={() => window.location.replace("https://bcobd.netlify.app/")}>
                           Back To Home
                         </DropdownItem>
                       </DropdownMenu>
