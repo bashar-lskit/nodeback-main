@@ -156,7 +156,7 @@ class Navigation extends React.PureComponent {
                 </Link>
               </div>
             </Col>
-            <Col
+            {/* <Col
               xs={{ size: 12, order: 2 }}
               sm={{ size: 12, order: 2 }}
               md={{ size: 6, order: 2 }}
@@ -172,7 +172,7 @@ class Navigation extends React.PureComponent {
                   onClick={() => this.toggleMenu()}
                 />
               </div>
-            </Col>
+            </Col> */}
             <Col
               xs={{ size: 12, order: 2 }}
               sm={{ size: 12, order: 2 }}
